@@ -25,3 +25,9 @@ The project aims to demonstrate automated testing practices for a web applicatio
 
    ```bash
    git clone https://github.com/testingrelampago/pythonGherkin.git
+
+2. Commands to install:
+
+   ```bash
+   pip install behave selenium webdriver_manager
+
