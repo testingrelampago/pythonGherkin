@@ -5,8 +5,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 @given('the user is on the login page')
 def user_is_on_login_page(context):
     # Specify the ChromeDriver version
-    chrome_version = "120.0.6099.109"  # You can update this with the latest version
-    context.driver = webdriver.Chrome(ChromeDriverManager(version=chrome_version).install())
+    context.driver = webdriver.Chrome(ChromeDriverManager().install())
 
     # Navigate to the login page URL
     login_page_url = 'https://www.testingrelampago.com/login'
