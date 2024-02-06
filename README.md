@@ -19,7 +19,7 @@ The project aims to demonstrate automated testing practices for a web applicatio
 - Python 3.x
 - Chrome or Firefox browser (depending on the WebDriver you choose)
 
-### Installation
+### Some commands
 
 1. Clone the repository:
 
@@ -31,3 +31,7 @@ The project aims to demonstrate automated testing practices for a web applicatio
    ```bash
    pip install behave selenium webdriver_manager
 
+3. Install python-dotenv to manage these files .env
+
+   ```bash
+   pip install python-dotenv

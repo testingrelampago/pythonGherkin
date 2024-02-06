@@ -1,6 +1,13 @@
 from behave import given, when, then
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
+import os
+from dotenv import load_dotenv
+
+# Cargar las variables de entorno desde el archivo .env
+load_dotenv()
+login_page_url = os.getenv("LOGIN_PAGE_URL")
+
 
 @given('the user is on the login page')
 def user_is_on_login_page(context):
@@ -8,7 +15,6 @@ def user_is_on_login_page(context):
     context.driver = webdriver.Chrome(ChromeDriverManager().install())
 
     # Navigate to the login page URL
-    login_page_url = 'https://www.testingrelampago.com/login'
     context.driver.get(login_page_url)
 
 @when('the user enters valid credentials')

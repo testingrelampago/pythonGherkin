@@ -1,6 +1,12 @@
 from behave import given, when, then
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
+import os
+from dotenv import load_dotenv
+
+# Cargar las variables de entorno desde el archivo .env
+load_dotenv()
+search_page_url = os.getenv("LOGIN_PAGE_URL")
 
 @given('the user is on the search page')
 def user_is_on_search_page(context):
@@ -8,7 +14,6 @@ def user_is_on_search_page(context):
     context.custom_context.driver = webdriver.Chrome(ChromeDriverManager().install())
 
     # Navigate to the search page URL
-    search_page_url = 'https://www.testingrelampago.com/search'
     context.custom_context.driver.get(search_page_url)
 
 @when('the user enters a product name')
