@@ -35,3 +35,8 @@ The project aims to demonstrate automated testing practices for a web applicatio
 
    ```bash
    pip install python-dotenv
+
+4. Exexute test cases BDD
+
+   ```bash
+   behave --color

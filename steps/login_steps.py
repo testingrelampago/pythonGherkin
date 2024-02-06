@@ -1,21 +1,23 @@
 from behave import given, when, then
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 import os
 from dotenv import load_dotenv
+from selenium.webdriver.chrome.options import Options
 
 # Cargar las variables de entorno desde el archivo .env
 load_dotenv()
 login_page_url = os.getenv("LOGIN_PAGE_URL")
 
-
 @given('the user is on the login page')
 def user_is_on_login_page(context):
-    # Specify the ChromeDriver version
-    context.driver = webdriver.Chrome(ChromeDriverManager().install())
+    # Crear opciones para el controlador Chrome
+    chrome_options = Options()
+    # Opcionalmente, puedes configurar las opciones aquí, como:
+    # chrome_options.add_argument('--headless')
 
-    # Navigate to the login page URL
-    context.driver.get(login_page_url)
+    # Inicializar el controlador de Chrome con las opciones
+    context.custom_context.driver = webdriver.Chrome(options=chrome_options)
+    context.custom_context.driver.get(login_page_url)
 
 @when('the user enters valid credentials')
 def user_enters_valid_credentials(context):
