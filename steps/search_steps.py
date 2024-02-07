@@ -1,8 +1,8 @@
+import os
 from behave import given, when, then
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
-import os
 from dotenv import load_dotenv
+from selenium.webdriver.chrome.options import Options
 
 # Cargar las variables de entorno desde el archivo .env
 load_dotenv()
@@ -10,10 +10,13 @@ search_page_url = os.getenv("LOGIN_PAGE_URL")
 
 @given('the user is on the search page')
 def user_is_on_search_page(context):
-    # Assuming you are using Chrome WebDriver, you can change it to other WebDriver if needed
-    context.custom_context.driver = webdriver.Chrome(ChromeDriverManager().install())
+    # Crear opciones para el controlador Chrome
+    chrome_options = Options()
+    # Opcionalmente, puedes configurar las opciones aquí, como:
+    # chrome_options.add_argument('--headless')
 
-    # Navigate to the search page URL
+    # Inicializar el controlador de Chrome con las opciones
+    context.custom_context.driver = webdriver.Chrome(options=chrome_options)
     context.custom_context.driver.get(search_page_url)
 
 @when('the user enters a product name')

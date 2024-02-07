@@ -1,6 +1,6 @@
+import os
 from behave import given, when, then
 from selenium import webdriver
-import os
 from dotenv import load_dotenv
 from selenium.webdriver.chrome.options import Options
 
