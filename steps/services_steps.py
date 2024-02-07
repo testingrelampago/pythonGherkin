@@ -14,7 +14,7 @@ from selenium.webdriver.chrome.options import Options
 
 # Add variable in .env
 load_dotenv()
-search_page_url = os.getenv("LOGIN_PAGE_URL")
+services_page_url = os.getenv("SERVICES_PAGE_URL")
 
 # -----
 
@@ -28,7 +28,7 @@ def user_is_on_service_page(context):
     chrome_options.add_argument('--headless')
 
     context.custom_context.driver = webdriver.Chrome(options=chrome_options)
-    context.custom_context.driver.get(search_page_url)
+    context.custom_context.driver.get(services_page_url)
 
 @when('the user search about the team')
 def user_search_about_the_team(context):
