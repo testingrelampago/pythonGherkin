@@ -46,7 +46,7 @@ def user_enters_valid_credentials(context):
 
 @then('the user should be logged in successfully')
 def user_logged_in_successfully(context):
-    WebDriverWait(context.custom_context.driver, 10).until(EC.presence_of_element_located((By.ID, 'welcome-message')))  # Cambia el selector según el elemento que esperas en la página de destino
+    WebDriverWait(context.custom_context.driver, 10).until(EC.presence_of_element_located((By.ID, 'welcome-message')))
 
 
 # -----

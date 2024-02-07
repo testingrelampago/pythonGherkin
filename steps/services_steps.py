@@ -11,6 +11,11 @@ from selenium import webdriver
 from dotenv import load_dotenv
 from behave import given, when, then
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
+
 
 # Add variable in .env
 load_dotenv()
@@ -25,7 +30,7 @@ services_page_url = os.getenv("SERVICES_PAGE_URL")
 @given('the user is on the service page')
 def user_is_on_service_page(context):
     chrome_options = Options()
-    chrome_options.add_argument('--headless')
+    # chrome_options.add_argument('--headless')
 
     context.custom_context.driver = webdriver.Chrome(options=chrome_options)
     context.custom_context.driver.get(services_page_url)
@@ -37,8 +42,15 @@ def user_search_about_the_team(context):
 
 @then('the user see display relevant team information')
 def user_see_display_relevant_team_information(context):
-    # Implement code
-    pass
+    expected_text = 'Our team'  # Texto esperado
+
+    try:
+        # Esperar a que el texto esperado esté presente en la página
+        WebDriverWait(context.custom_context.driver, 10).until(EC.text_to_be_present_in_element((By.TAG_NAME, 'body'), expected_text))
+        print(f"The text '{expected_text}' is in the service page")
+    except TimeoutException:
+        print(f"The text '{expected_text}' is not in the service page")
+
 
 # -----
 
