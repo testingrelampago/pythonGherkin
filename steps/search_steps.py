@@ -1,7 +1,7 @@
 # -----
 
 #
-# Feature: Search functionality
+# Feature: Search information in service page
 #
 
 # -----
@@ -18,40 +18,40 @@ search_page_url = os.getenv("LOGIN_PAGE_URL")
 
 # -----
 
-# Scenario: User searches for a product
+# Scenario: User searches for a service
 
 # -----
 
-@given('the user is on the search page')
-def user_is_on_search_page(context):
+@given('the user is on the service page')
+def user_is_on_service_page(context):
     chrome_options = Options()
     chrome_options.add_argument('--headless')
 
     context.custom_context.driver = webdriver.Chrome(options=chrome_options)
     context.custom_context.driver.get(search_page_url)
 
-@when('the user enters a product name')
-def user_enters_product_name(context):
+@when('the user search about the team')
+def user_search_about_the_team(context):
     # Implement code to enter a product name
     pass
 
-@then('the search results should display relevant products')
-def search_results_display_relevant_products(context):
+@then('the user see display relevant team information')
+def user_see_display_relevant_team_information(context):
     # Implement verification code for relevant search results
     pass
 
 # -----
 
-# Scenario: User searches with an empty query
+# Scenario: User searches information about linkedin page
 
 # -----
 
-@when('the user submits an empty search')
-def user_submits_empty_search(context):
+@when('the user search the linkedin button')
+def user_search_the_linkedin_button(context):
     # Implement code to enter a product name
     pass
 
-@then('a message should indicate no results')
-def message_should_indicate_no_results(context):
+@then('the linkedin button redirect to the linkedin page')
+def linkedin_button_redirect_to_linkedin_page(context):
     # Implement verification code for relevant search results
     pass
