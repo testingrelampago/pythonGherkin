@@ -30,7 +30,7 @@ services_page_url = os.getenv("SERVICES_PAGE_URL")
 @given('the user is on the service page')
 def user_is_on_service_page(context):
     chrome_options = Options()
-    # chrome_options.add_argument('--headless')
+    #chrome_options.add_argument('--headless')
 
     context.custom_context.driver = webdriver.Chrome(options=chrome_options)
     context.custom_context.driver.get(services_page_url)
@@ -42,10 +42,9 @@ def user_search_about_the_team(context):
 
 @then('the user see display relevant team information')
 def user_see_display_relevant_team_information(context):
-    expected_text = 'Our team'  # Texto esperado
+    expected_text = 'Our team'
 
     try:
-        # Esperar a que el texto esperado esté presente en la página
         WebDriverWait(context.custom_context.driver, 10).until(EC.text_to_be_present_in_element((By.TAG_NAME, 'body'), expected_text))
         print(f"The text '{expected_text}' is in the service page")
     except TimeoutException:
@@ -60,10 +59,10 @@ def user_see_display_relevant_team_information(context):
 
 @when('the user search the linkedin button')
 def user_search_the_linkedin_button(context):
-    # Implement code
-    pass
+    linkedin_link = WebDriverWait(context.custom_context.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, '[data-aid="SOCIAL_LINKEDIN_LINK"]')))
+    linkedin_link.click()
 
 @then('the linkedin button redirect to the linkedin page')
 def linkedin_button_redirect_to_linkedin_page(context):
-    # Implement code
-    pass
+    context.custom_context.driver.switch_to.window(context.custom_context.driver.window_handles[-1])
+    WebDriverWait(context.custom_context.driver, 10).until(EC.url_contains("linkedin.com"))
