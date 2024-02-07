@@ -1,23 +1,22 @@
 # PythonGherkin
 
-This repository contains automated test cases for the [Testing Relampago](https://www.testingrelampago.com) website using Selenium, Gherkin, and Cucumber in Python.
+This repository contains automated test cases for the [Testing Relampago](https://www.testingrelampago.com) website using Selenium, Gherkin, Behave in Python.
 
 ## Overview
 
-The project aims to demonstrate automated testing practices for a web application using the Selenium WebDriver, Gherkin language for behavior-driven development (BDD), and the Cucumber testing framework.
+The project aims to demonstrate automated testing practices for a web application using the Selenium WebDriver and Gherkin language for behavior-driven development (BDD) using Behave for Python.
 
 ## Features
 
 - **Login Functionality**: Test cases for successful login and various login scenarios.
-- **Search Functionality**: Test cases for searching products on the website.
-- **Checkout Process**: Test cases for adding products to the cart and completing the checkout process.
+- **Search Services**: Test cases for searching services on the website.
 
 ## Getting Started
 
 ### Prerequisites
 
 - Python 3.x
-- Chrome or Firefox browser (depending on the WebDriver you choose)
+- Chrome or Firefox browser (depending on the WebDriver you choose. I'm using Chrome)
 
 ### Some commands
 

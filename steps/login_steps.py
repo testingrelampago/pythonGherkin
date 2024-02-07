@@ -26,18 +26,19 @@ login_page_url = os.getenv("LOGIN_PAGE_URL")
 def user_is_on_login_page(context):
     chrome_options = Options()
     chrome_options.add_argument('--headless')
+    # Comment the last line if you want to see Chrome driver
 
     context.custom_context.driver = webdriver.Chrome(options=chrome_options)
     context.custom_context.driver.get(login_page_url)
 
 @when('the user enters valid credentials')
 def user_enters_valid_credentials(context):
-    # Implement code to enter valid credentials
+    # Implement code
     pass
 
 @then('the user should be logged in successfully')
 def user_logged_in_successfully(context):
-    # Implement verification code for successful login
+    # Implement code
     pass
 
 # -----
@@ -48,10 +49,10 @@ def user_logged_in_successfully(context):
 
 @when('the user enters invalid credentials')
 def user_enters_invalid_credentials(context):
-    # Implement code to enter valid credentials
+    # Implement code
     pass
 
 @then('an error message should be displayed')
 def user_see_an_error_displayed(context):
-    # Implement verification code for successful login
+    # Implement code
     pass

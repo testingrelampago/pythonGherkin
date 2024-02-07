@@ -32,12 +32,12 @@ def user_is_on_service_page(context):
 
 @when('the user search about the team')
 def user_search_about_the_team(context):
-    # Implement code to enter a product name
+    # Implement code
     pass
 
 @then('the user see display relevant team information')
 def user_see_display_relevant_team_information(context):
-    # Implement verification code for relevant search results
+    # Implement code
     pass
 
 # -----
@@ -48,10 +48,10 @@ def user_see_display_relevant_team_information(context):
 
 @when('the user search the linkedin button')
 def user_search_the_linkedin_button(context):
-    # Implement code to enter a product name
+    # Implement code
     pass
 
 @then('the linkedin button redirect to the linkedin page')
 def linkedin_button_redirect_to_linkedin_page(context):
-    # Implement verification code for relevant search results
+    # Implement code
     pass
