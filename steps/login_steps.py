@@ -44,9 +44,6 @@ def user_enters_valid_credentials(context):
     password_input.send_keys('tu_contraseña')
     login_button.click()
 
-    WebDriverWait(context.custom_context.driver, 10).until(EC.presence_of_element_located((By.ID, 'dashboard')))
-
-
 @then('the user should be logged in successfully')
 def user_logged_in_successfully(context):
     WebDriverWait(context.custom_context.driver, 10).until(EC.presence_of_element_located((By.ID, 'welcome-message')))  # Cambia el selector según el elemento que esperas en la página de destino
@@ -60,10 +57,14 @@ def user_logged_in_successfully(context):
 
 @when('the user enters invalid credentials')
 def user_enters_invalid_credentials(context):
-    # Implement code
-    pass
+    username_input = context.custom_context.driver.find_element(By.ID, 'wrongUsername')
+    password_input = context.custom_context.driver.find_element(By.ID, 'wrongPassword')
+    login_button = context.custom_context.driver.find_element(By.ID, 'login-button')
+
+    username_input.send_keys('tu_usuario')
+    password_input.send_keys('tu_contraseña')
+    login_button.click()
 
 @then('an error message should be displayed')
 def user_see_an_error_displayed(context):
-    # Implement code
-    pass
+    WebDriverWait(context.custom_context.driver, 10).until(EC.presence_of_element_located((By.ID, 'login-section')))
